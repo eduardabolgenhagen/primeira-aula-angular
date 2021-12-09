@@ -13,8 +13,8 @@
   <ul>
     <div *ngFor="let pessoas of listsPersons; let i = index">
       <li *ngIf="pessoas.deleted != true">
-        <app-list-item [personItem]="pessoas">
-          <button (click)="selectPessoa(pessoas , i)">Selecionar Pessoa</button>
+        <app-list-item [personItem]="pessoas" (onClick)="clickPerson($event)">
+          <button (click)= "selectPessoa(pessoas , i)">Selecionar Pessoa</button>
           <button (click)="deletarPessoa(i)">Deletar Pessoa</button>
         </app-list-item>
       </li>
@@ -24,7 +24,7 @@
   <ul>
     <div *ngFor="let pessoas of listsPersons; let i = index">
       <li *ngIf="pessoas.deleted == true">
-        <app-list-item [personItem]="pessoas">
+        <app-list-item [personItem]="pessoas" (onClick)="clickPerson($event)">
           <button (click)="restaurarPessoa(i)">Restaurar Pessoa</button>
         </app-list-item>
       </li>
